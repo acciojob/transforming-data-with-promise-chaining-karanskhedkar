@@ -12,7 +12,7 @@ const multiplyTwo = (num) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(num * 2);
-    }, 2000);
+    }, 1000);
   });
 };
 
@@ -45,15 +45,15 @@ const startPromises = async () => {
   let inputValue = document.getElementById("ip")?.value;
   if (inputValue !== "") {
     let res = await displayNumber(Number(inputValue));
-    outputDiv.innerText = res;
+    outputDiv.innerText = "Result: "+res;
     res=await multiplyTwo(res);
-    outputDiv.innerText = res;
+    outputDiv.innerText = "Result: "+res;
     res=await subTractThree(res);
-    outputDiv.innerText = res;
+    outputDiv.innerText = "Result: "+res;
     res=await divideTwo(res);
-    outputDiv.innerText = res;
+    outputDiv.innerText = "Result: "+res;
     res=await addTen(res);
-    outputDiv.innerText = res;
+    outputDiv.innerText = "Final Result: "+res;
   }
 };
 
