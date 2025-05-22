@@ -1,4 +1,5 @@
 //your JS code here. If required.
+
 const displayNumber = (num) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -39,29 +40,20 @@ const addTen = (num) => {
   });
 };
 
-const startPromises = () => {
+const startPromises = async () => {
   const outputDiv = document.getElementById("output");
   let inputValue = document.getElementById("ip")?.value;
-  if (inputValue!=="") {
-    displayNumber(Number(inputValue))
-      .then((res) => {
-        outputDiv.innerText = res;
-        return multiplyTwo(res);
-      })
-      .then((res) => {
-        outputDiv.innerText = res;
-        return subTractThree(res);
-      })
-      .then((res) => {
-        outputDiv.innerText = res;
-        return divideTwo(res);
-      })
-      .then((res) => {
-        outputDiv.innerText = res;
-        return addTen(res);
-      })
-      .then((res) => {
-        outputDiv.innerText = res;
-      });
+  if (inputValue !== "") {
+    let res = await displayNumber(Number(inputValue));
+    outputDiv.innerText = res;
+    res=await multiplyTwo(res);
+    outputDiv.innerText = res;
+    res=await subTractThree(res);
+    outputDiv.innerText = res;
+    res=await divideTwo(res);
+    outputDiv.innerText = res;
+    res=await addTen(res);
+    outputDiv.innerText = res;
   }
 };
+
